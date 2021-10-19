@@ -41,14 +41,15 @@ class UserController extends Controller
 
     public function login(LoginRequest $request)
     {
+
         if ($request->isMethod('get')){
             return view('riode.singup.login');
         }
 
         $check = $request;
         if (Auth::attempt([
-            'email' => $request->log_email,
-            'password' => $request->log_pass,
+            'email' => $request->email,
+            'password' => $request->password,
         ])) {
             return redirect()->route('index');
         }

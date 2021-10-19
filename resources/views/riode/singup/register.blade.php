@@ -30,27 +30,27 @@
                             <form action="{{route('store.register_store')}}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="reg_name" placeholder="Your Name *">
-                                    @if($errors->has('reg_name'))
-                                        <span class="text-danger error-text">{{$errors->first('reg_name')}}</span>
+                                    <input type="text" class="form-control" name="name" placeholder="Your Name *">
+                                    @if($errors->has('name'))
+                                        <span class="text-danger error-text">{{$errors->first('name')}}</span>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" name="reg_email" placeholder="Your Email address *">
-                                    @if($errors->has('reg_email'))
-                                        <span class="text-danger error-text">{{$errors->first('reg_email')}}</span>
+                                    <input type="email" class="form-control" name="email" placeholder="Your Email address *">
+                                    @if($errors->has('email'))
+                                        <span class="text-danger error-text">{{$errors->first('email')}}</span>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" name="reg_pass" placeholder="Password *">
-                                    @if($errors->has('reg_pass'))
-                                        <span class="text-danger error-text">{{$errors->first('reg_pass')}}</span>
+                                    <input type="password" class="form-control" name="password" placeholder="Password *">
+                                    @if($errors->has('password'))
+                                        <span class="text-danger error-text">{{$errors->first('password')}}</span>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" name="reg_pass_confirmation" placeholder="Confirm password *">
-                                    @if($errors->has('reg_pass_confirmation'))
-                                        <span class="text-danger error-text">{{$errors->first('reg_pass_confirmation')}}</span>
+                                    <input type="password" class="form-control" name="confirmation" placeholder="Confirm password *">
+                                    @if($errors->has('confirmation'))
+                                        <span class="text-danger error-text">{{$errors->first('confirmation')}}</span>
                                     @endif
                                 </div>
                                 <div class="form-footer">

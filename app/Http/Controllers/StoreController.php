@@ -12,6 +12,7 @@ use App\Repositories\store\FilterProductRepository;
 use App\Repositories\store\IndexRepository;
 use App\Repositories\store\PaginateRepository;
 use App\Repositories\store\ProductRepository;
+use App\Repositories\store\QtyProductRepository;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -59,9 +60,9 @@ class StoreController extends Controller
     public function product($url)
     {
         $pro_rep = new ProductRepository();
-        $product = $pro_rep->product($url); //Product::where('slug', $url)->first();
+        $product = $pro_rep->product($url);
         $pro_cat = $product->category_id;
-        $other_pro = $pro_rep->other_pro($pro_cat); //Product::where('category_id', $pro_cat)->get();
+        $other_pro = $pro_rep->other_pro($pro_cat);
         return view('riode.product', compact('product', 'other_pro'));
     }
 
@@ -82,19 +83,19 @@ class StoreController extends Controller
 
     public function plus_qty(Request $request)
     {
+        $qty_plus = new QtyProductRepository();
         if ($request->ajax())
         {
-            $plus_qty = Cart::get($request->rowId);
-            $plus_qty->qty++;
+            $qty_plus->qty_plus($request);
             return view('riode.ajax._cart_page_table')->render();
         }
     }
 
     public function minus_qty(Request $request)
     {
+        $qty_minus = new QtyProductRepository();
         if ($request->ajax()) {
-            $minus_qty = Cart::get($request->rowId);
-            $minus_qty->qty--;
+            $qty_minus->qty_minus($request);
             return view('riode.ajax._cart_page_table')->render();
         }
     }
@@ -117,7 +118,7 @@ class StoreController extends Controller
         }
     }
 
-    public function wishlist(Request $request)
+    /*public function wishlist(Request $request)
     {
         if ($request->ajax())
         {
@@ -132,6 +133,6 @@ class StoreController extends Controller
 
             return view('riode.ajax._wishlist_count', compact('count'));
         }
-    }
+    }*/
 
 }

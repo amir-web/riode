@@ -31,15 +31,15 @@
                         <form action="{{route('store.login')}}" method="post">
                             @csrf
                             <div class="form-group mb-3">
-                                <input type="text" class="form-control" name="log_email" placeholder="Username or Email Address *">
-                                @if($errors->has('log_email'))
-                                    <span class="text-danger error-text">{{$errors->first('log_email')}}</span>
+                                <input type="text" class="form-control" name="email" placeholder="Username or Email Address *">
+                                @if($errors->has('email'))
+                                    <span class="text-danger error-text">{{$errors->first('email')}}</span>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="log_pass" placeholder="Password *">
-                                @if($errors->has('log_pass'))
-                                    <span class="text-danger error-text">{{$errors->first('log_pass')}}</span>
+                                <input type="password" class="form-control" name="password" placeholder="Password *">
+                                @if($errors->has('password'))
+                                    <span class="text-danger error-text">{{$errors->first('password')}}</span>
                                 @endif
                             </div>
                             <div class="form-footer">

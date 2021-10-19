@@ -26,8 +26,8 @@ class LoginRequest extends FormRequest
         if ($this->isMethod('get')) return [];
 
         return [
-            'log_email' => 'required|email',
-            'log_pass' => 'required'
+            'email' => 'required|email',
+            'password' => 'required'
         ];
     }
 }
